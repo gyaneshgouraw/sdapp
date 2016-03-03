@@ -1,0 +1,60 @@
+<style>
+	.error{
+		background: red
+	}
+	.success{
+		background: #6DEF6D
+	}
+</style>
+<div class="container">
+	<div class="">
+	<div class="col-md-6 form-group well">
+	<form>
+	<div class="row form-group">
+		<label for="key">Key</label><input id="key" type="text" class="form-control" ng-model="key" placeholder="Enter Key">
+	</div>
+	<div class="row form-group">
+		<label for="val">	Value</label><input id="val" type="text" class="form-control"ng-model="value" placeholder="Enter Value">
+	</div>
+		
+		<div class="row form-group">
+			<div class="col-md-6">
+				<button class="btn btn-primary col-md-12" ng-disabled="!(key.length>0 &&value.length>0)" ng-click="DataBaseRelatedMethods.insertData()">Submit</button>
+			</div>
+			<div class="col-md-6">
+				<button class="btn btn-success col-md-12" ng-click="DataBaseRelatedMethods.getAllData()">Get Inserted List</button>
+			</div>
+		</div>
+		
+		
+	</form>
+		
+	</div>
+	<div class="col-md-6">
+		<pre id="json"></pre>
+	</div> 	
+	</div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" ng-class="insert.success?'success':'error'">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel" ng-show="insert.success">Success</h4>
+        <h4 class="modal-title" id="myModalLabel" ng-show="!insert.success">Error</h4>
+      </div>
+      <div class="modal-body">
+       <span ng-show="insert.success">Your data was successfully inserted</span>
+       <span ng-show="!insert.success">There was error with insertion. <p>Please try again.</p></span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
